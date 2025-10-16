@@ -1,0 +1,51 @@
+/*全体*/
+body{
+    background-color: #eee;
+}
+
+#content{
+    width: 90%;
+    margin: 0.5em auto;
+    padding: 1.5em;
+    background-color: #fff;
+}
+
+/*投稿フォーム*/
+.post_form{
+    max-width: 50em;
+    padding: 1em;
+    border: 1px solid #000;
+}
+
+.post_form form{
+    display: grid;
+    grid-template-columns: 5em 1fr;
+}
+
+.post_form label{
+    text-align: right;
+}
+
+.post_form input{
+    margin: 1em;
+}
+
+.post_form textarea{
+    margin: 1em;
+    height: 7em;
+}
+
+/*記事*/
+article{
+    display: grid;
+    grid-template-columns: 5em 1fr;
+    border-bottom: 2px solid #eee;
+}
+
+.post_label{
+    text-align: right;
+}
+
+article pre{
+    font-family: sans-serif;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>昔懐かしのBBS</title>
+    <link rel="stylesheet" th:href="@{/bbs.css}"
+</head>
+<body>
+    <div id="content">
+        <h1>昔懐かしのBBS</h1>
+        <div class="post_form">
+            <form action="/posting" method="post">
+                <label>お名前：</label>
+                <input type="text" name="name">
+                <label>記事：</label>
+                <textarea name="article"></textarea>
+                <button type="submit">投稿</button>
+            </form>
+        </div>
+        <hr>
+        <article th:each="kiji : ${article}">
+            <p class="post_label">お名前：</p><p class="post_name" th:text="${kiji.name} + '　（　' + ${kiji.posttime} + '　）'"></p>
+            <p class="post_label">記事：</p>
+            <p>
+                <th:block th:each="line, stat : ${kiji.article.split('\r\n|\r|\n', -1)}">
+                    <th:block th:text="${line}"/><br th:if="${!stat.last}">
+                </th:block>
+            </p>
+        </article>
+    </div>
+</body>
+</html>
