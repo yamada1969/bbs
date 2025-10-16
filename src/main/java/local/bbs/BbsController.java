@@ -18,7 +18,7 @@ public class BbsController {
         this.dao = dao;
     }
 
-    @RequestMapping(value="/bbs")
+    @RequestMapping(value="/")
     public String show(Model model){
         model.addAttribute("article", dao.getAll());
         return "bbs";
@@ -40,6 +40,6 @@ public class BbsController {
 
         BbsItem item = new BbsItem(id, posttime, name, article);
         dao.insert(item);
-        return "redirect:/bbs";
+        return "redirect:/";
     }
 }
